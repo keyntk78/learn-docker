@@ -1,0 +1,28 @@
+// xem danh sach images
+sudo docker images
+//xoa image
+sudo docker rmi -f "id"
+
+//xem danh sach container
+sudo docker ps
+
+//xoa container
+sudo docker rm -f 'id'
+
+// SQL SERVER
+
+// -- pull image sql server
+sudo docker pull mcr.microsoft.com/mssql/server:2022-latest
+
+//create container from image
+
+//1 image => multipe containers
+// -d : Detach(background) mode
+// -e: enviroment variabale
+// --name : container name
+// -v : /var/opt/mssql
+sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Kiet@123456" --name sql-server-2022-container -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
+
+//Luu tru volume
+// -v "host'volume" : "container's volume"
+

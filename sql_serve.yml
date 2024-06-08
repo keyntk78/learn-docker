@@ -1,0 +1,14 @@
+services:
+  sql-sever-container:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
+    ports:
+      - '1433:1433'
+    networks:
+      - mydatabase
+    environment:
+      SA_PASSWORD: Kiet@123456
+      ACCEPT_EULA: Y
+networks:
+  mydatabase:
+#docker-compose -f sql_serve.yml up -d

@@ -1,0 +1,23 @@
+services:
+  mysq-container:
+    image: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      - mydatabase
+    environment:
+      MYSQL_ROOT_PASSWORD: Kiet@123456
+  phpmyadmin-container:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    networks:
+      - mydatabase
+    environment:
+      PMA_HOST: mysq-container
+networks:
+  mydatabase:
+
+#docker-compose -f compose.yml up -d
